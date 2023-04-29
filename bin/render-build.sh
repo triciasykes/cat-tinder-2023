@@ -5,7 +5,7 @@ bundle install
 
 rm -rf public
 
-yarn add --prefix cat-tinder-frontend/package.json  && yarn build --prefix cat-tinder-frontend
+yarn cat-tinder-frontend/package.json  && yarn build cat-tinder-frontend/package.json
 
 bundle exec rake db:migrate
 

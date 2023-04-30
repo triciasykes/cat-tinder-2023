@@ -1,12 +1,13 @@
 
+#!/usr/bin/env bash
+# exit on error
 set -o errexit
 
-bundle install
-
+# Add build commands for front end
 rm -rf public
-
-yarn add cat-tinder-frontend  && yarn build cat-tinder-frontend
-
-bundle exec rake db:migrate
-
+yarn --prefix cat-tinder-frontend && yarn build --prefix cat-tinder-frontend
 cp -a cat-tinder-frontend/build/. public/
+
+bundle install
+bundle exec rake db:migrate
+bundle exec rails db:seed
